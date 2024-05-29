@@ -1,0 +1,209 @@
+@import "../../responsive.scss";
+
+.singlePage {
+  display: flex;
+  height: 100%;
+
+  @include md {
+    flex-direction: column;
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+
+  .details {
+    flex: 3;
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding-bottom: 0.6em;
+
+    @include md {
+      flex: none;
+      height: max-content;
+      margin-bottom: 3.125rem;
+    }
+
+    .wrapper {
+      padding-right: 3.125rem;
+
+      .info {
+        margin-top: 3.125rem;
+
+        .top {
+          display: flex;
+          justify-content: space-between;
+
+          .post {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+
+            h1 {
+              font-weight: 400;
+            }
+
+            .address {
+              display: flex;
+              gap: 5px;
+              align-items: center;
+              color: #888;
+              font-size: 0.8rem;
+
+              img {
+                width: 1rem;
+                height: 1rem;
+              }
+            }
+
+            .price {
+              padding: 5px;
+              background-color: rgba(254, 205, 81, 0.431);
+              border-radius: 5px;
+              width: max-content;
+              font-size: 1.25rem;
+              font-weight: 300;
+            }
+          }
+
+          .user {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            padding: 0 3.125rem;
+            border-radius: 0.6rem;
+            background-color: rgba(254, 205, 81, 0.431);
+            font-weight: 600;
+
+            img {
+              width: 3.125rem;
+              height: 3.125rem;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+        }
+
+        .bottom {
+          margin-top: 3.125rem;
+          color: #555;
+          line-height: 1.25rem;
+        }
+      }
+    }
+  }
+
+  .features {
+    flex: 2;
+    background-color: #fcf5f3;
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    margin-bottom: 3.125rem;
+
+    @include md {
+      flex: none;
+      height: max-content;
+    }
+
+    .wrapper {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+
+      img {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+
+      .title {
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .feature {
+        display: flex;
+        align-items: center;
+        gap: 0.6em;
+
+        img {
+          background-color: rgba(254, 205, 81, 0.431);
+        }
+
+        .featureText {
+          span {
+            font-weight: bold;
+          }
+
+          p {
+            font-size: 0.8em;
+          }
+        }
+      }
+
+      .listVertical {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25em;
+        padding: 1.25em 0.6em;
+        background-color: white;
+        border-radius: 0.6em;
+      }
+
+      .listHorizontal {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.25em 0.6em;
+        background-color: white;
+        border-radius: 0.6em;
+      }
+
+      .sizes {
+        display: flex;
+        justify-content: space-between;
+
+        .size {
+          display: flex;
+          align-items: center;
+          gap: 0.6em;
+          background-color: white;
+          padding: 0.6em;
+          border-radius: 5px;
+
+          @include lg {
+            font: 0.7em;
+          }
+        }
+      }
+
+      .mapContainer {
+        width: 100%;
+        height: 13rem;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          display: flex;
+          padding: 1.25em;
+          align-items: center;
+          gap: 5px;
+          background-color: white;
+          border: 1px solid red;
+          border-radius: 5px;
+          cursor: pointer;
+
+          img {
+            width: 1em;
+            height: 1em;
+          }
+        }
+      }
+    }
+  }
+}

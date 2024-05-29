@@ -1,0 +1,83 @@
+@import '../../responsive.scss';
+
+.profile {
+  display: flex;
+  height: 100%;
+
+  @include md {
+    flex-direction: column;
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+
+  .details {
+    flex: 3;
+    overflow: scroll;
+    scrollbar-width: none;
+    padding-bottom: 3.125em;
+
+    @include md {
+      flex: none;
+      height: max-content;
+    }
+
+    .wrapper {
+      padding-right: 3.125em;
+      display: flex;
+      flex-direction: column;
+      gap: 3.125em;
+
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h1 {
+          font-weight: 300;
+        }
+
+        button {
+          padding: 0.7em 1.5em;
+          background-color: #fece51;
+          cursor: pointer;
+          border: none;
+        }
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25em;
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: 1.25em;
+        }
+
+        img {
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .chatContainer {
+    flex: 2;
+    background-color: #fcf5f3;
+    height: 100%;
+
+    @include md {
+      flex: none;
+      height: max-content;
+    }
+
+    .wrapper {
+      padding: 0px 1.25em;
+      height: 100%;
+    }
+  }
+}

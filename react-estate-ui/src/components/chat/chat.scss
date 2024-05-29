@@ -1,0 +1,122 @@
+.chat {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+    h1 {
+      font-weight: 300;
+    }
+
+    .message {
+      background-color: white;
+      padding: 1.25em;
+      border-radius: 0.6em;
+      display: flex;
+      align-items: center;
+      gap: 1.25em;
+      cursor: pointer;
+
+      img {
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .chatBox {
+    flex: 1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .top {
+      background-color: #f7c14b85;
+      padding: 1.25em;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 1.25em;
+
+        img {
+          width: 1.8em;
+          height: 1.8em;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
+      .close {
+        cursor: pointer;
+      }
+    }
+
+    .center {
+      height: 350px;
+      overflow: scroll;
+      scrollbar-width: none;
+      padding: 1.25em;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25em;
+
+      .chatMessage {
+        width: 50%;
+
+        &.own {
+          align-self: flex-end;
+          text-align: right;
+        }
+
+        span {
+            font-size: 0.7em;
+            background-color: #f7c14b85;
+            padding: 2px;
+            border-radius: 5px;
+        }
+      }
+    }
+
+    .bottom {
+      border-top: 2px solid #f7c14b85;
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      textarea {
+        flex: 3;
+        height: 100%;
+        border: none;
+        padding: 1.25em;
+      }
+
+      button {
+        flex: 1;
+        height: 100%;
+        background-color: #f7c14b85;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
