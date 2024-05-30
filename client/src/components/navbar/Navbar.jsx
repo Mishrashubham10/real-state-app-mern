@@ -1,30 +1,33 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './navbar.scss';
 import { Link } from "react-router-dom";
+import { AuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const {currentUser} = useContext(AuthContext);
 
   const user = true;
 
   return (
     <nav className="navbar">
       <div className="left">
-        <a href="/" className="logo">
+        <Link to="/" className="link logo">
           <img src="/logo.png" alt="" />
           <span>ShubhEstate</span>
-        </a>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Agents</a>
+        </Link>
+        <Link className='link' to="/">Home</Link>
+        <Link className='link' to="#">About</Link>
+        <Link className='link' to="#">Contact</Link>
+        <Link className='link' to="#">Agents</Link>
       </div>
       <div className="right">
         {
-          user ? (
+          currentUser ? (
             <div className='user'>
-              <img src="https://i.pinimg.com/474x/cd/d5/6c/cdd56c07fae204d378fb29450444b7aa.jpg" alt="Profile Picture" />
-              <span>Shubham Mishra</span>
+              <img src={currentUser.avatar || "https://images.pexels.com/photos/1531660/pexels-photo-1531660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"} alt="Profile Picture" />
+              <span>{currentUser.username}</span>
               <Link to="/profile" className='profile'>
                 <div className="notification">3</div>
                 <span>Profile</span>
@@ -32,10 +35,10 @@ const Navbar = () => {
             </div>
           ) :
           <>
-          <a href="#">Sign in</a>
-        <a href="#" className="register">
+          <Link to="/login" className='login link'>Sign in</Link>
+        <Link to="/register" className="link register">
           Sign up
-        </a>
+        </Link>
         </>
         }
         <div className="menuIcon">
@@ -46,12 +49,12 @@ const Navbar = () => {
           />
         </div>
         <div className={open ? 'menu active' : 'menu'}>
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
-          <a href="#">Agents</a>
-          <a href="#">Sign in</a>
-          <a href="#">Sign up</a>
+          <Link className='link' to="/">Home</Link>
+          <Link className='link' to="#">About</Link>
+          <Link className='link' to="#">Contact</Link>
+          <Link className='link' to="#">Agents</Link>
+          <Link className='link' to="/login">Sign in</Link>
+          <Link className='link' to="register">Sign up</Link>
         </div>
       </div>
     </nav>
