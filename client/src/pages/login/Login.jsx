@@ -11,6 +11,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError("");
 
     const formData = new FormData(e.target);
 
@@ -23,7 +24,9 @@ function Login() {
         password,
       });
 
-      navigate('/login');
+      localStorage.setItem("user", JSON.stringify(res.data))
+
+      navigate('/');
     } catch (err) {
       console.log(err);
       setError(err.response.data.message);
