@@ -57,6 +57,7 @@ const login = async (req, res) => {
     const token = jwt.sign(
       {
         id: user.id,
+        isAdmin: true,
       },
       process.env.JWT_SECRET_KEY,
       { expiresIn: age }
