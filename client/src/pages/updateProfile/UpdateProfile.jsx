@@ -3,7 +3,7 @@ import './updateProfile.scss';
 import { AuthContext } from '../../context/AuthContext';
 import apiRequest from '../../lib/apiRequest';
 import { useNavigate } from 'react-router-dom';
-// import UploadWidget from '../../components/uploadWidget/UploadWidget';
+import UploadWidget from '../../components/uploadWidget/UploadWidget';
 
 function UpdateProfile() {
   const { currentUser, updateUser } = useContext(AuthContext);
@@ -14,6 +14,7 @@ function UpdateProfile() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData(e.target);
 
     const { username, email, password } = Object.fromEntries(formData);
@@ -23,10 +24,11 @@ function UpdateProfile() {
         username,
         email,
         password,
-        avatar: avatar[0],
+        avatar: avatar.join(', '),
       });
+
       updateUser(res.data);
-      navigate('/profile');
+      navigate("/profile");
     } catch (err) {
       console.log(err);
       setError(err.response.data.message);
@@ -66,20 +68,24 @@ function UpdateProfile() {
       </div>
       <div className="sideContainer">
         <img
-          src={avatar[0] || currentUser.avatar || "https://images.pexels.com/photos/1531660/pexels-photo-1531660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"}
+          src={
+            avatar[0] ||
+            currentUser.avatar ||
+            'https://images.pexels.com/photos/1531660/pexels-photo-1531660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+          }
           alt=""
           className="avatar"
         />
-        {/* <UploadWidget
+        <UploadWidget
           uwConfig={{
-            cloudName: 'lamadev',
+            cloudName: 'dhhyxtkpd',
             uploadPreset: 'estate',
             multiple: false,
             maxImageFileSize: 2000000,
             folder: 'avatars',
           }}
           setState={setAvatar}
-        /> */}
+        />
       </div>
     </div>
   );
